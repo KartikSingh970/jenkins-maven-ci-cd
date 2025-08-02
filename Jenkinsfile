@@ -45,19 +45,26 @@ pipeline {
             
             }
         }
-
-      stage('Deploy to Tomcat') {
-            steps {
-                deploy adapters: [tomcat8(credentialsId:'tomcat-creds' 'TOMCAT_PASS'"${TOMCAT_CREDENTIALS}", path: '', url: "${TOMCAT_URL}")],
-                       contextPath: '/myapp',
-                       war: 'target/myapp.war'
-            }
-        }
+stage('Deploy to Tomcat') {
+    steps {
+        deploy(
+            adapters: [
+                tomcat8(
+                    credentialsId: 'tomcat-creds',
+                    path: '',
+                    url: "${TOMCAT_URL}"
+                )
+            ],
+            contextPath: '/myapp',
+            war: 'target/myapp.war'
+        )
+    }
     post {
         success {
-            echo '🎉 Deployment Successful!'
+            echo '🚀 Deployment Successful!'
         }
         failure {
             echo '❌ Build or Deployment Failed!'
         }
-    } 
+    }
+}
