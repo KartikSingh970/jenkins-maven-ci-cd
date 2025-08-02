@@ -48,7 +48,7 @@ pipeline {
 
       stage('Deploy to Tomcat') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: "${TOMCAT_CREDENTIALS}", path: '', url: "${TOMCAT_URL}")],
+                deploy adapters: [tomcat8(credentialsId:'tomcat-creds' 'TOMCAT_PASS'"${TOMCAT_CREDENTIALS}", path: '', url: "${TOMCAT_URL}")],
                        contextPath: '/myapp',
                        war: 'target/myapp.war'
             }
