@@ -46,7 +46,7 @@ pipeline {
             }
         }
 
-     /*   stage('Deploy to Tomcat') {
+     /  stage('Deploy to Tomcat') {
             steps {
                 deploy adapters: [tomcat8(credentialsId: "${TOMCAT_CREDENTIALS}", path: '', url: "${TOMCAT_URL}")],
                        contextPath: '/myapp',
@@ -62,4 +62,4 @@ pipeline {
         failure {
             echo '❌ Build or Deployment Failed!'
         }
-    } */
+    } 
