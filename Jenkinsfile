@@ -53,7 +53,6 @@ pipeline {
                        war: 'target/myapp.war'
             }
         }
-}
     post {
         success {
             echo '🎉 Deployment Successful!'
